@@ -8,7 +8,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-purple-800 p-4">
+    <nav className="bg-[#45007A] p-4 bg-opacity-60">
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo */}
         <div>
