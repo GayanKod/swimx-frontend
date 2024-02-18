@@ -1,6 +1,12 @@
 import {createBrowserRouter} from "react-router-dom";
 import HomePage from "../pages/HomePage";
 import ProfilePage from "../pages/ProfilePage";
+import AdminLoginPage from "../pages/admin/AdminLoginPage";
+import AdminDashboard from "../pages/admin/AdminDashboard";
+import AdminDashboardHome from "../pages/admin/AdminDashboardHome";
+import AdminAuthGuard from "../pages/auth/AdminAuthGuard";
+import AdminLoginRedirectGuard from "../pages/auth/AdminLoginRedirectGuard";
+import AdminDashboardUsers from "../pages/admin/AdminDashboardUsers";
 
 const router = createBrowserRouter([
     {
@@ -11,7 +17,33 @@ const router = createBrowserRouter([
         path: "/profile",
         element: <ProfilePage />,
     },
-]);
+    {
+        path: "/admin/auth",
+        element: (
+            <AdminLoginRedirectGuard>
+                <AdminLoginPage/>
+            </AdminLoginRedirectGuard>
+        ),
+    },
+    {
+        path: "/admin",
+        element: (
+            <AdminAuthGuard>
+                <AdminDashboard/>
+            </AdminAuthGuard>
+        ),
+        children: [
+            {
+                path: "",
+                element: <AdminDashboardHome/>,
+            },
+            {
+                path: "users",
+                element: <AdminDashboardUsers/>,
+            },
 
+        ],
+    },
+]);
 
 export default router;
