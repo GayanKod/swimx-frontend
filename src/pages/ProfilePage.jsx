@@ -6,13 +6,18 @@ const ProfilePage = () => {
     <>
       <Navbar />
       <div className="container rounded border border-black flex items-center justify-center h-[70vh] md:w-[70%] mx-auto my-20 p-8 shadow-lg bg-white">
-      <div className="container-left mr-32">
-          {/* Profile Picture */}
+        <div className="container-left mr-32 flex flex-col items-center">
+          <div className="image-container flex flex-col items-center">
+            {/* Profile Picture */}
             <img
               src="https://your-profile-picture-url.jpg" // Replace with your actual profile picture URL
               alt="Profile"
               className="h-64 w-64 rounded-full border-2 border-[#45007A]"
             />
+          </div>
+          <div className="flex flex-col items-center mt-4">
+            <h1>Gayan Kodithuwakku</h1>
+          </div>
         </div>
         <div className="container-right">
           <div class="px-4 sm:px-0">
